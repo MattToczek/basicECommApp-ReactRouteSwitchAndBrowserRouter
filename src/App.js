@@ -14,7 +14,7 @@ import { SSL_OP_LEGACY_SERVER_CONNECT } from 'constants';
 export default class App extends Component {
   state = {
     basket: 0,
-    items: [
+    items: [                        // array of objects on sale
       {
         item: "PS4",
         price: 150
@@ -22,14 +22,18 @@ export default class App extends Component {
       {
         item: "Xbox 360",
         price: 100
+      },
+      {
+        item: "SNES",
+        price: 0.50
       }
 
       ],
-    bought: []
+    bought: []                     // array updated by button press with item bought
   }
 
-  addToBasket = (index) => {
-    console.log("add to basket clicked!!");
+  addToBasket = (index) => {                    // sets basket value and bought list, dependant on item clicked
+    // console.log("add to basket clicked!!");
     this.setState({
       basket: this.state.basket + this.state.items[index].price,
       bought: [...this.state.bought, this.state.items[index].item]

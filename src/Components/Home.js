@@ -1,15 +1,19 @@
 import React from 'react'
 
+
 export default function (props) {
-    return (
+    return (                                        // allows home page to be updated using only the state items in App.js
         <div>
             <h1>This is the Home Page</h1>
-            <div>
-                <h2>{props.saleItem[0].item} SALE!!!! - Only £{props.saleItem[0].price}</h2> <a onClick={()=> {props.toBasket(0)}} href="#">Buy Now</a>
-            </div>
-            <div>
-                <h2>{props.saleItem[1].item} SALE!!!! - Only £{props.saleItem[1].price}</h2> <a onClick={() => {props.toBasket(1)}} href="#">Buy Now</a>
-            </div>
+            {props.saleItem.map((item, i) => {
+                return(
+                <div>
+                    <h2>{item.item} SALE!!!! - Only £{item.price}</h2> <a onClick={()=> {props.toBasket(i)}} href="#">Buy Now</a>
+                </div>
+                )
+            })
+            }
+            
         </div>
     )
 }
