@@ -24,28 +24,30 @@ export default class App extends Component {
         price: 100
       }
 
-    ]
+      ],
+    bought: []
   }
 
   addToBasket = (index) => {
     console.log("add to basket clicked!!");
     this.setState({
       basket: this.state.basket + this.state.items[index].price,
+      bought: [...this.state.bought, this.state.items[index].item]
       
     })
   
   }
 
   render() {
-    console.log(this.state.basketItems + " and " + this.state.basket);
+
     return (
       <BrowserRouter>
         <div className = "container">
           <Nav basket = {this.state.basket}/>
             <Switch>
-              <Route exact path="/" render={() => <Home saleItem ={this.state.items} toBasket={this.addToBasket}/>}/>
+              <Route exact path="/" render={() => <Home saleItem ={this.state.items}  toBasket={this.addToBasket}/>}/>
               <Route path="/about" component={About} />
-              <Route path="/basket" render={() => <Basket inBasket={this.basketItems} total={this.state.basket}/>} />
+              <Route path="/basket" render={() => <Basket boughtItems = {this.state.bought} inBasket={this.state.items} total={this.state.basket}/>} />
             </Switch>
         </div>
       </BrowserRouter>
