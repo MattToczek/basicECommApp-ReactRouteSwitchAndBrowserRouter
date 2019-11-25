@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+
+nav {
+  background-color: tomato;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 30px;
+}
+
+a {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: rgb(168, 57, 57);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+a:active {
+  transform: scale(1.1);
+}
+
+ a {
+  color: white;
+}
+
+ a:hover {
+  color: darkgray;
+}
+
+h2 {
+  display: inline-block;
+  margin-right: 20px;
+
+}
+
